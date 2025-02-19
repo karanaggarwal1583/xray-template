@@ -1,0 +1,39 @@
+# Create values.yaml for Xray installation
+global:
+  jfrogUrl: "http://ab9a87c1203ed4b7ea8a4b80d75f6b1c-1494511120.us-west-2.elb.amazonaws.com"  # Update with your Artifactory service URL
+  jfrog:
+    masterKey: "d593ed4754c5ea612507bccc9d5037a0ec88437a96e90964b1f1ed59c503d5f9"  # Replace with your master key
+    joinKey: "4c5c2f9436885aaef12782421e827edb"  # Replace with your join key
+  postgresql:
+    enabled: true
+
+xray:
+  enabled: true
+  jfrog:
+    masterKey: d593ed4754c5ea612507bccc9d5037a0ec88437a96e90964b1f1ed59c503d5f9
+    joinKey: 4c5c2f9436885aaef12782421e827edb
+  service:
+    type: ClusterIP
+  persistence:
+    enabled: true
+    storageClassName: "efs"
+    size: 50Gi
+  resources:
+    requests:
+      memory: "2Gi"
+      cpu: "1"
+    limits:
+      memory: "4Gi"
+      cpu: "2"
+
+rabbitmq:
+  enabled: true
+  auth:
+    password: "KaranAggarwal@100"
+  resources:
+    requests:
+      memory: "250Mi"
+      cpu: "100m"
+    limits:
+      memory: "500Mi"
+      cpu: "200m"
